@@ -14,7 +14,33 @@ if (part == null) {
   process.exit(1);
 }
 
-process.env.DAY = day;
+let nodeFork;
 
-// Run day file with node
-fork(`days/${day}/${part}.js`);
+require('esbuild').build({
+  entryPoints: [`days/${day}/${part}.js`],
+  bundle: true,
+  outfile: 'dist/main.js',
+  platform: 'node',
+  target: 'node12',
+  inject: require('fs').readdirSync('services').map(file => `services/${file}`),
+  define: {
+    '__DAY__': JSON.stringify(day),
+  },
+  watch: {
+    onRebuild(err) {
+      if (err) {
+        console.error('watch build failed:', err);
+        process.exit(1);
+      }
+
+      console.info('Rebuilding...');
+
+      nodeFork.kill();
+      nodeFork = fork('dist/main.js');
+    },
+  },
+})
+  .then(() => {
+    // Run day file with node
+    nodeFork = fork('dist/main.js');
+  })

@@ -7,7 +7,7 @@
  * and so on. Stop when there aren't enough measurements left to create a new three-measurement sum.
  */
 
-const data = require('../../services/fileToString').fileToString('input').split('\n').map(Number);
+const data = inputFile().map(Number);
 let inc = 0;
 
 for (let i = 0; i < data.length; i++) {
