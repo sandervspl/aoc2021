@@ -10,5 +10,7 @@ if (day == null) {
   process.exit(1);
 }
 
+process.env.DAY = day;
+
 // Run day file with node
 fork(`${day}/index.js`);
