@@ -3,7 +3,7 @@
  * What do you get if you multiply your final horizontal position by your final depth?
  */
 
-const data = require('../services/fileToString').fileToString('input').split('\n');
+const data = require('../../services/fileToString').fileToString('input').split('\n');
 let h = d = 0;
 
 for (const value of data) {

@@ -17,4 +17,4 @@ if (part == null) {
 process.env.DAY = day;
 
 // Run day file with node
-fork(`${day}/${part}.js`);
+fork(`days/${day}/${part}.js`);
