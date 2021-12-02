@@ -2,9 +2,9 @@
   "name": "aoc2021",
   "version": "1.0.0",
   "description": "https://adventofcode.com/2021",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "start": "node cli.js"
+    "start": "node main.js"
   },
   "keywords": [],
   "author": "Sander Vispoel",
