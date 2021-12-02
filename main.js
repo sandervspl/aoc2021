@@ -2,9 +2,9 @@ const { fork } = require('child_process');
 
 // Get day number from args
 const [,,...args] = process.argv
-const [day, part = 1] = args
+const [day, part] = args
 
-// Let user know he is dumb
+// Let user know they are dumb
 if (day == null) {
   console.error('ERROR: GIVE A DAY NUMBER');
   process.exit(1);
