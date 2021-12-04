@@ -1,8 +1,28 @@
 const { fork } = require('child_process');
+const fs = require('fs');
 
 // Get day number from args
 const [,,...args] = process.argv
 const [day, part] = args
+
+// Create new day folder
+if (day === 'create' && part != null) {
+  const dir = `./days/${part}`;
+  fs.mkdirSync(dir);
+  fs.closeSync(fs.openSync(`${dir}/input`, 'w'));
+
+  for (const part_ of [1,2]) {
+    const file = `${dir}/${part_}.js`;
+    fs.closeSync(fs.openSync(file, 'w'));
+    fs.writeFileSync(file, `/**\n * https://adventofcode.com/2021/day/${part}${part_ == 2?'#part2':''}\n */\n\nconst data = inputFile();\n`);
+  }
+  
+  fs.copyFileSync('./index.d.ts', `${dir}/index.d.ts`);
+
+  console.log(`\nCreated days/${part}!\n`);
+
+  process.exit(0);
+}
 
 // Let user know they are dumb
 if (day == null) {
