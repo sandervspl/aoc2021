@@ -62,5 +62,5 @@ function calcAnswer(board) {
       }
     }
   }
-  console.log({ answer: sum * numList[numList.length-1] });
+  console.log({ answer: sum * numList.last() });
 }
