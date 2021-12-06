@@ -61,4 +61,4 @@ for (const row of field) {
 
 // draw();
 
-console.log({answer: c});
+console.log({ answer: c });
