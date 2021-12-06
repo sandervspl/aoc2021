@@ -17,7 +17,7 @@ if (day === 'create' && part != null) {
     fs.writeFileSync(file, `/**\n * https://adventofcode.com/2021/day/${part}${part_ == 2?'#part2':''}\n */\n\nconst data = inputFile();\n`);
   }
   
-  fs.copyFileSync('./index.d.ts', `${dir}/index.d.ts`);
+  // fs.copyFileSync('./index.d.ts', `${dir}/index.d.ts`);
 
   console.log(`\nCreated days/${part}!\n`);
 
