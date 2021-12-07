@@ -53,5 +53,9 @@ module.exports = {
     'space-infix-ops': 'error',
     'eol-last': ['error', 'always'],
     'no-inner-declarations': [0],
+    'comma-spacing': ['error', {
+      'before': false,
+      'after': true
+    }],
   }
 };
