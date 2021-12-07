@@ -57,5 +57,6 @@ module.exports = {
       'before': false,
       'after': true
     }],
+    'no-var': ['error'],
   }
 };
